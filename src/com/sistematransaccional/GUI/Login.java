@@ -129,9 +129,10 @@ public class Login extends javax.swing.JFrame {
         LoginLogic l1 = new LoginLogic(user,pass);
        
         if(l1.isAutorized()){//verifica que el usuario este autorizado
-           
+      
          PantallaInicial pantalla1 = new PantallaInicial();
          pantalla1.setVisible(true);
+        
            
         }else{
             txtError.setText("Datos Incorrectos");

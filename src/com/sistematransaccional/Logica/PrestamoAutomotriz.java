@@ -40,3 +40,4 @@ public class PrestamoAutomotriz extends Prestamo implements Calculador{
         return calcularFinanciador()* 0.00026;
     }
 }
+ 

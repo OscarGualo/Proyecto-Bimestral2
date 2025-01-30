@@ -144,7 +144,11 @@ public class PantallaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        Login lg = new Login();
+        
+        lg.setVisible(true);
+       this.dispose(); //Cierra el jform actual
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
