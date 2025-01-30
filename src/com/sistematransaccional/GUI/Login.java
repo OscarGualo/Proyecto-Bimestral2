@@ -28,7 +28,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
+        botonEntrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -41,13 +41,13 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sistematransaccional/GUI/login.PNG"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sistematransaccional/GUI/login.PNG"))); // NOI18N
+        botonEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonEntrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 200, 40));
+        getContentPane().add(botonEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 200, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sistematransaccional/GUI/Picture.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
@@ -119,22 +119,25 @@ public class Login extends javax.swing.JFrame {
     private void txtUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusLost
        
     }//GEN-LAST:event_txtUserFocusLost
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+/**
+ * Este metodo va a hacer que el usuario entre al sigueinte pantalla inciial , dependiendo si esta autorizado o no
+ * @param evt 
+ */
+    private void botonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEntrarActionPerformed
         String user = txtUser.getText();
         String pass = txtPass.getText();
         LoginLogic l1 = new LoginLogic(user,pass);
        
         if(l1.isAutorized()){//verifica que el usuario este autorizado
            
-         PantallaPrueba p1 = new PantallaPrueba();
+         PantallaInicial p1 = new PantallaInicial();
          p1.setVisible(true);
            
         }else{
             txtError.setText("Datos Incorrectos");
          
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_botonEntrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,7 +175,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton botonEntrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;

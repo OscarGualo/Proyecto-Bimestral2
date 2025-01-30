@@ -14,7 +14,9 @@ public class SistemaTransaccional {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+    
+       Prestamo p1 = new PrestamoAutomotriz(10000, 36, 5000);
+        System.out.println(p1.calcularCuotaFrances());
     }
     
 }
