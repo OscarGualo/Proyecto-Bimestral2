@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-package com.sistematransaccional.GUI;
-=======
 
->>>>>>> 80ab9246d0693475beb0de097e2b298fce286d04
+package com.sistematransaccional.GUI;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
