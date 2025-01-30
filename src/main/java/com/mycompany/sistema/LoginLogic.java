@@ -42,8 +42,8 @@ public class LoginLogic {
     
     public boolean isAutorized(){
        String credenciales = this.user + " "+ this.password;
-       //CAMBIAR LA DIRECCION SI QUIEREN PROBAR SEGUN SU PC 
-       String filePath = "C:\\Users\\oscar\\Documents\\NetBeansProjects\\Sistema\\src\\main\\java\\com\\mycompany\\sistema\\txt1.txt";
+       //CAMBIAR LA DIRECCION SI QUIEREN PROBAR SEGUN SU 
+       String filePath = "C:\\Users\\oscar\\Documents\\NetBeansProjects\\Sistema\\src\\main\\java\\com\\mycompany\\sistema\\UsuariosAutorizados.txt";
        boolean state =false;
        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
           String line; 
