@@ -15,8 +15,24 @@ public class SistemaTransaccional {
      */
     public static void main(String[] args) {
     
-       Prestamo p1 = new PrestamoAutomotriz(10000, 36, 5000);
-        System.out.println(p1.calcularCuotaFrances());
+        PrestamoAuto p1 = new PrestamoAuto(10000, 36, 5000);
+        double capitalFinal ;
+        
+         for(int i = 0  ;i< 36 ; i++){
+              System.out.println(p1.calcularCapital());
+             
+              System.out.println(p1.calcularInteres());
+              
+             System.out.println(p1.calcularSumaSeguro());
+             System.out.println(p1.calcularCuotaFrances());
+             System.out.println(p1.getMontoFinal());
+             System.out.println(p1.calcularSumaIntereses());
+         }
+            
+            
+             
+      
+        
     }
     
 }

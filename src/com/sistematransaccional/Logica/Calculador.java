@@ -9,7 +9,7 @@ package com.sistematransaccional.Logica;
  * @author oscar
  */
 public interface Calculador {
-    public double calcularFinanciador();
+   
     public double calcularCuotaFrances();
-    public double calcularSeguroIncendio();
+    public double getMontoFinal();
 }

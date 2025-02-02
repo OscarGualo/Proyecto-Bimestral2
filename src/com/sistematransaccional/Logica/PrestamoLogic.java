@@ -8,13 +8,11 @@ package com.sistematransaccional.Logica;
  *
  * @author oscar
  */
-public abstract class Prestamo implements Calculador{
-     
-    private static final double  INTERES_ANUAL = (11.61)/(12 * 100);
-    private double monto ;
+public abstract class PrestamoLogic implements Calculador{
+   private double monto ;
     private int meses; 
 
-    public Prestamo(double monto, int meses) {
+    public PrestamoLogic(double monto, int meses) {
         this.monto = monto;
         this.meses = meses;
     }
@@ -34,7 +32,5 @@ public abstract class Prestamo implements Calculador{
     public void setMeses(int meses) {
         this.meses = meses;
     }
-    
-    
     
 }

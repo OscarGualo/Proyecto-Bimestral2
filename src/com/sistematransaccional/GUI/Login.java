@@ -101,7 +101,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
-        
+      
     }//GEN-LAST:event_txtUserActionPerformed
 
     private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
@@ -132,6 +132,7 @@ public class Login extends javax.swing.JFrame {
       
          PantallaInicial pantalla1 = new PantallaInicial();
          pantalla1.setVisible(true);
+         this.dispose();
         
            
         }else{
