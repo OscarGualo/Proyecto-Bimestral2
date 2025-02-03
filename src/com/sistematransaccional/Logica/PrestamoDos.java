@@ -13,14 +13,32 @@ import com.sistematransaccional.Logica.MetodoAleman;
  * @author oscar
  */
 public class PrestamoDos extends PrestamoPrueba implements MetodoAleman{
-
+    private double capitalFija;
+    private double montoFinal;
     public PrestamoDos(double monto, double meses) {
         super(monto, meses);
+        this.capitalFija = calcularCapitalFija();
+        this.montoFinal = monto;
     }
-
+    public double capitalFija(){
+        return montoFinal /getMeses();
+    }
     @Override
     public double calcularCapitalFija() {
         return getMonto() / getMeses();
+    }
+
+    @Override
+    public double calcularCuota() {
+        double cuotaTotal ;
+        cuotaTotal  = capitalFija + calcularInteres() +calcularSeguroDesgravamen() ;
+        return cuotaTotal;
+    }
+    public double calcularSaldoFinal(){
+        double saldoInicial = getMonto();
+        double saldoFinal = saldoInicial - this.capitalFija;
+        setMonto(saldoFinal);
+        return saldoFinal;
     }
     
 }

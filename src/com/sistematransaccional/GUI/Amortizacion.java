@@ -21,6 +21,7 @@ public class Amortizacion extends javax.swing.JFrame {
      * Creates new form Amortizacion
      */
     DefaultTableModel tm = new DefaultTableModel();
+    private Prestamo p3 ;
     private double interes;
     private double capital;
     private double saldoTotal;
@@ -80,7 +81,7 @@ public class Amortizacion extends javax.swing.JFrame {
 
     public Amortizacion() {
         initComponents();
-
+        p3 = new Prestamo();
     }
 
     /**
@@ -304,7 +305,7 @@ public class Amortizacion extends javax.swing.JFrame {
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         tm.setRowCount(0);
-        String ids[] = {"NoCuotas", "Capital", "Interes", "Saldo de Capital", " Seguro de desgravamen","Seguro de Incendios", "Valor total de cuota",};
+        String ids[] = {"NoCuotas", "Saldo Final", "Capital Fija","Intereses", " Valor de cuota","Seguro de Incendios", "Seguro de desgravamen"};
         tm.setColumnIdentifiers(ids);
         
         MontoEstatico = Double.parseDouble(txtMonto.getText());
@@ -312,16 +313,27 @@ public class Amortizacion extends javax.swing.JFrame {
         setSaldoTotal(Double.parseDouble(txtMonto.getText()));
         double plazo = Double.parseDouble(txtPlazo.getText());
         PrestamoUno p1 = new PrestamoUno(MontoEstatico, plazo);
-        for (int i = 1; i <= plazo; i++) {
+        PrestamoDos p2  =  new PrestamoDos(5000, 36);
+        for (int i = 1; i <= 36; i++) {
             tm.addRow(new Object[]{
                 i,
+               
+                String.format("%.3f",p2.calcularSaldoFinal()),
+               
+                String.format("%.3f",p2.capitalFija()),
+                String.format("%.3f",p2.calcularInteres()),
+                String.format("%.3f",p2.calcularCuota()),
+                String.format("%.3f",p2.calcularSeguroIncendios()),
+                String.format("%.3f",p2.calcularSeguroDesgravamen()),
+                
+                /*
                 String.format("%.3f", p1.calcularAmortizacionPeriodo()),
                 String.format("%.3f", p1.calcularInteresPeriodo()),
                 String.format("%.3f", p1.calcularNuevoSaldo()),
                 String.format("%.3f", p1.calcularSeguroDesgravamen()),
                 String.format("%.3f", p1.calcularSeguroIncendios()),
                 String.format("%.3f", p1.calcularCuotaFija())
-
+                */
             });
         }
 

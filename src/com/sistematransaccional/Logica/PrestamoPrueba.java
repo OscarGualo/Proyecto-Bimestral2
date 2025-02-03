@@ -44,5 +44,6 @@ public abstract class PrestamoPrueba {
      public double calcularInteres(){
         return getMonto() *INTERES_NOMINAL;
     }
+     
     
 }

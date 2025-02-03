@@ -54,6 +54,8 @@ public class PrestamoUno extends PrestamoPrueba implements MetodoFrances {
         setMonto(nuevoSaldo);
         return nuevoSaldo;
     }
+
+    
     
    
 }

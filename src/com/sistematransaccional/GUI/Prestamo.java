@@ -218,6 +218,11 @@ public class Prestamo extends javax.swing.JFrame {
         jPanel5.add(tbtAleman, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 399, -1, 55));
 
         jButton2.setText("Simular");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 508, -1, -1));
 
         prueba.addActionListener(new java.awt.event.ActionListener() {
@@ -377,6 +382,10 @@ public class Prestamo extends javax.swing.JFrame {
       }
     }//GEN-LAST:event_tbtAlemanActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -417,110 +426,26 @@ public class Prestamo extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox8;
-    private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField prueba;
-    private javax.swing.JTextField prueba1;
-    private javax.swing.JTextField prueba2;
-    private javax.swing.JTextField prueba3;
-    private javax.swing.JTextField prueba5;
-    private javax.swing.JTextField prueba6;
-    private javax.swing.JTextField prueba7;
-    private javax.swing.JTextField prueba8;
     private javax.swing.JToggleButton tbtAleman;
-    private javax.swing.JToggleButton tbtAleman1;
-    private javax.swing.JToggleButton tbtAleman2;
-    private javax.swing.JToggleButton tbtAleman3;
-    private javax.swing.JToggleButton tbtAleman5;
-    private javax.swing.JToggleButton tbtAleman6;
-    private javax.swing.JToggleButton tbtAleman7;
-    private javax.swing.JToggleButton tbtAleman8;
     private javax.swing.JToggleButton tbtFrances;
-    private javax.swing.JToggleButton tbtFrances1;
-    private javax.swing.JToggleButton tbtFrances2;
-    private javax.swing.JToggleButton tbtFrances3;
-    private javax.swing.JToggleButton tbtFrances5;
-    private javax.swing.JToggleButton tbtFrances6;
-    private javax.swing.JToggleButton tbtFrances7;
-    private javax.swing.JToggleButton tbtFrances8;
     private javax.swing.JTextField txtCostoAuto;
-    private javax.swing.JTextField txtCostoAuto1;
-    private javax.swing.JTextField txtCostoAuto2;
-    private javax.swing.JTextField txtCostoAuto3;
-    private javax.swing.JTextField txtCostoAuto5;
-    private javax.swing.JTextField txtCostoAuto6;
-    private javax.swing.JTextField txtCostoAuto7;
-    private javax.swing.JTextField txtCostoAuto8;
     private javax.swing.JTextField txtPrestamoSoli;
-    private javax.swing.JTextField txtPrestamoSoli1;
-    private javax.swing.JTextField txtPrestamoSoli2;
-    private javax.swing.JTextField txtPrestamoSoli3;
-    private javax.swing.JTextField txtPrestamoSoli5;
-    private javax.swing.JTextField txtPrestamoSoli6;
-    private javax.swing.JTextField txtPrestamoSoli7;
-    private javax.swing.JTextField txtPrestamoSoli8;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,4 +11,5 @@ package com.sistematransaccional.Logica;
  */
 public interface MetodoAleman {
     public double calcularCapitalFija();
+    public double calcularCuota();
 }
