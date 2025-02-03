@@ -262,7 +262,7 @@ public class SimuladorPrestamoUI {
         panelBotones.add(btnMostrarTabla);
         panelBotones.add(btnSalir);
         panelFormulario.add(panelBotones, gbc);
-
+        
         // Ocultar formulario inicialmente
         panelFormulario.setVisible(false);
         frame.add(panelFormulario, BorderLayout.CENTER);
