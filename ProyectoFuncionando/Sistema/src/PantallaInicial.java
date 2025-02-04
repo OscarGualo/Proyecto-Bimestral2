@@ -198,12 +198,19 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 
 public class PantallaInicial extends javax.swing.JFrame {
+    /**
+     * Constructor de la clase PantallaInicial.
+     * Inicializa los componentes de la interfaz gráfica y carga una imagen en jLabel2.
+     */
     public PantallaInicial() {
         initComponents();
         jLabel2.setIcon(new ImageIcon(new ImageIcon("archivosPrestamos\\click1.png").getImage()
                 .getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_SMOOTH)));
     }
-
+    /**
+     * Método para inicializar y configurar los componentes de la interfaz gráfica.
+     * Define el diseño de la ventana, sus botones, etiquetas y paneles.
+     */
     private void initComponents() {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -250,7 +257,12 @@ public class PantallaInicial extends javax.swing.JFrame {
         jPanel1.setBounds(0, 0, 1000, 650);
         getContentPane().add(jPanel1);
     }
-
+    /**
+     * Método que se ejecuta cuando se presiona el botón "Módulo Transaccional".
+     * Abre la ventana GUIModuloTransaccional y cierra la pantalla actual.
+     *
+     * @param evt Evento de acción generado al presionar el botón.
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 
         SwingUtilities.invokeLater(() -> {
@@ -259,7 +271,12 @@ public class PantallaInicial extends javax.swing.JFrame {
         });
 
     }
-
+    /**
+     * Método que se ejecuta cuando se presiona el botón "Módulo de Préstamos".
+     * Abre la ventana Prestamo y cierra la pantalla actual.
+     *
+     * @param evt Evento de acción generado al presionar el botón.
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         SwingUtilities.invokeLater(() -> {
             new Prestamo().setVisible(true);
@@ -267,6 +284,12 @@ public class PantallaInicial extends javax.swing.JFrame {
         });
     }
 
+    /**
+     * Método que se ejecuta cuando se presiona el botón "Salir".
+     * Abre la ventana de Login y cierra la pantalla actual.
+     *
+     * @param evt Evento de acción generado al presionar el botón.
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         Login lg = new Login();
         lg.setVisible(true);
