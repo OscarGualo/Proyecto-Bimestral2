@@ -68,10 +68,8 @@ public class GUIModuloTransaccional extends JFrame {
 			});
 		});
 
-		toolBar.add(Box.createHorizontalGlue());
-		toolBar.add(btnSalir);
-
 		getContentPane().add(toolBar, BorderLayout.NORTH);
+
 		// Panel principal dividido
 		JSplitPane mainSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		mainSplitPane.setDividerLocation(255);
@@ -352,4 +350,7 @@ public class GUIModuloTransaccional extends JFrame {
 		rightPanel.repaint();
 	}
 
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(() -> new GUIModuloTransaccional().setVisible(true));
+	}
 }
