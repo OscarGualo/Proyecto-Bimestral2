@@ -7,6 +7,7 @@ import java.text.MessageFormat;
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
 import javax.print.attribute.standard.OrientationRequested;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -82,6 +83,7 @@ public class Amortizacion extends javax.swing.JFrame {
     public Amortizacion() {
         initComponents();
         p3 = new Prestamo();
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
 
     /**

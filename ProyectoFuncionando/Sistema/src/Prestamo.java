@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 
 import javax.crypto.AEADBadTagException;
 import javax.swing.ButtonGroup;
@@ -29,6 +33,7 @@ public class Prestamo extends javax.swing.JFrame {
         jPanel4.setVisible(false);
         jlabelAuto.setVisible(false);
         jlabelCasa.setVisible(false);
+        setDefaultCloseOperation(Prestamo.EXIT_ON_CLOSE);
 
     }
 
@@ -78,6 +83,14 @@ public class Prestamo extends javax.swing.JFrame {
         lblTotalDesgrav = new javax.swing.JLabel();
         lblTotalAPagar = new javax.swing.JLabel();
         btbTablaAmorti = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,7 +111,7 @@ public class Prestamo extends javax.swing.JFrame {
                                         .addContainerGap(765, Short.MAX_VALUE))));
         jPanel3Layout.setVerticalGroup(
                 jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 46, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addContainerGap()
@@ -163,6 +176,238 @@ public class Prestamo extends javax.swing.JFrame {
 
         jlabelAuto.setText("¿Cuanto cuesta el auto?");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setText("LOS PAGOS MENSUALES SERAN DE ");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setText("Detalle de credito");
+
+        lblCapital.setText("x");
+
+        lblInteres.setText("x");
+
+        lblSeguro.setText("x");
+
+        jLabel1.setText("+");
+
+        jLabel4.setText("+");
+
+        lblCuota.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblCuota.setText("x");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setText("Capital: ");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel9.setText("Total Interes:");
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel10.setText("Total Seguro Desgravamen:");
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel11.setText("Total a pagar:");
+
+        lblTotalCapital.setText("x");
+
+        lblTotalInteres.setText("x");
+
+        lblTotalDesgrav.setText("x");
+
+        lblTotalAPagar.setText("x");
+
+        btbTablaAmorti.setText("Mostrar tabla de amortizacion");
+        btbTablaAmorti.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btbTablaAmortiActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Capital");
+
+        jLabel13.setText("Interes");
+
+        jLabel14.setText("Seguro");
+
+        jLabel15.setText("$");
+
+        jLabel16.setText("$");
+
+        jLabel17.setText("$");
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel18.setText("$");
+
+        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addGap(211, 211, 211)
+                                                .addComponent(jLabel12))
+                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addGap(275, 275, 275)
+                                                .addComponent(jLabel2))
+                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addGap(184, 184, 184)
+                                                .addGroup(jPanel4Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                                .addComponent(jLabel15)
+                                                                .addPreferredGap(
+                                                                        javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(lblCapital,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 59,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(
+                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jLabel1)
+                                                                .addGap(18, 18, 18)
+                                                                .addComponent(jLabel16))
+                                                        .addComponent(jLabel18))
+                                                .addGroup(jPanel4Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                                .addGap(31, 31, 31)
+                                                                .addComponent(lblCuota))
+                                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                                .addPreferredGap(
+                                                                        javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addGroup(jPanel4Layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                                                .addComponent(lblInteres,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                        54,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addPreferredGap(
+                                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(jLabel4))
+                                                                        .addComponent(jLabel13))
+                                                                .addGap(25, 25, 25)
+                                                                .addComponent(jLabel17)
+                                                                .addPreferredGap(
+                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addGroup(jPanel4Layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(jLabel14)
+                                                                        .addComponent(lblSeguro,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                66,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGroup(jPanel4Layout
+                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                                        .addPreferredGap(
+                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED, 396,
+                                                                Short.MAX_VALUE)
+                                                        .addComponent(btbTablaAmorti))
+                                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                                        .addGap(219, 219, 219)
+                                                        .addGroup(jPanel4Layout
+                                                                .createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                                                        .addGroup(jPanel4Layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addComponent(jLabel10)
+                                                                                .addComponent(jLabel11))
+                                                                        .addGap(88, 88, 88)
+                                                                        .addGroup(jPanel4Layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addComponent(lblTotalAPagar)
+                                                                                .addComponent(lblTotalDesgrav,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                        71,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                                                        .addGroup(jPanel4Layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addComponent(jLabel9)
+                                                                                .addComponent(jLabel6))
+                                                                        .addGap(168, 168, 168)
+                                                                        .addGroup(jPanel4Layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addComponent(lblTotalCapital,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                        67,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addComponent(lblTotalInteres,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                        67,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addGap(279, 279, 279)
+                                                .addComponent(jLabel3)))
+                                .addContainerGap(1263, Short.MAX_VALUE)));
+        jPanel4Layout.setVerticalGroup(
+                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addGap(59, 59, 59)
+                                                .addGroup(jPanel4Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLabel1)
+                                                        .addComponent(jLabel4)
+                                                        .addComponent(jLabel16)
+                                                        .addComponent(jLabel17)
+                                                        .addComponent(lblCapital)
+                                                        .addComponent(jLabel15)
+                                                        .addComponent(lblInteres)
+                                                        .addComponent(lblSeguro))))
+                                .addGap(24, 24, 24)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(jLabel12)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addGroup(jPanel4Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLabel14)
+                                                        .addComponent(jLabel13))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(jPanel4Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(lblCuota)
+                                                        .addComponent(jLabel18))
+                                                .addGap(63, 63, 63)
+                                                .addComponent(jLabel3)
+                                                .addGap(37, 37, 37)))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel6)
+                                        .addComponent(lblTotalCapital, javax.swing.GroupLayout.PREFERRED_SIZE, 16,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(39, 39, 39)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel9)
+                                        .addComponent(lblTotalInteres))
+                                .addGap(33, 33, 33)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel10)
+                                        .addComponent(lblTotalDesgrav))
+                                .addGap(24, 24, 24)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel11)
+                                        .addComponent(lblTotalAPagar))
+                                .addGap(40, 40, 40)
+                                .addComponent(btbTablaAmorti)
+                                .addGap(163, 163, 163))
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 728,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)));
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -185,34 +430,44 @@ public class Prestamo extends javax.swing.JFrame {
                                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING,
                                                         jPanel5Layout.createSequentialGroup()
                                                                 .addGap(20, 20, 20)
-                                                                .addComponent(lblDinero))))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(lblDinero)))
                                         .addGroup(jPanel5Layout.createSequentialGroup()
-                                                .addGap(25, 25, 25)
-                                                .addGroup(jPanel5Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addGroup(jPanel5Layout.createSequentialGroup()
-                                                                .addComponent(tbtFrances)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(tbtAleman))
-                                                        .addComponent(jButton1)))
-                                        .addGroup(jPanel5Layout.createSequentialGroup()
-                                                .addGap(43, 43, 43)
                                                 .addGroup(jPanel5Layout
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(JComboxMeses,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel7)
-                                                        .addComponent(jLabel8)))
-                                        .addGroup(jPanel5Layout.createSequentialGroup()
-                                                .addGap(67, 67, 67)
-                                                .addComponent(txtPrestamoSoli, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(136, 216, Short.MAX_VALUE)));
+                                                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                                                .addGap(25, 25, 25)
+                                                                .addGroup(jPanel5Layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                                                                .addGap(18, 18, 18)
+                                                                                .addGroup(jPanel5Layout
+                                                                                        .createParallelGroup(
+                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                        .addComponent(JComboxMeses,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addComponent(jLabel7)))
+                                                                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                                                                .addGap(42, 42, 42)
+                                                                                .addComponent(txtPrestamoSoli,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                        101,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addComponent(jLabel8)
+                                                                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                                                                .addGap(62, 62, 62)
+                                                                                .addComponent(jButton1))))
+                                                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                                                .addContainerGap()
+                                                                .addComponent(tbtFrances)
+                                                                .addGap(16, 16, 16)
+                                                                .addComponent(tbtAleman)))
+                                                .addGap(27, 27, 27)
+                                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(90, Short.MAX_VALUE)));
         jPanel5Layout.setVerticalGroup(
                 jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel5Layout.createSequentialGroup()
@@ -233,167 +488,19 @@ public class Prestamo extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(JComboxMeses, javax.swing.GroupLayout.PREFERRED_SIZE,
                                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96,
-                                        Short.MAX_VALUE)
+                                .addGap(58, 58, 58)
                                 .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
+                                .addGap(31, 31, 31)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(tbtFrances)
                                         .addComponent(tbtAleman))
-                                .addGap(55, 55, 55)
+                                .addGap(29, 29, 29)
                                 .addComponent(jButton1)
-                                .addGap(145, 145, 145)));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setText("LOS PAGOS MENSUALES SERAN DE ");
-
-        jLabel3.setText("Detalle de credito");
-
-        lblCapital.setText("x");
-
-        jLabel1.setText("+");
-
-        jLabel4.setText("+");
-
-        lblCuota.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-
-        jLabel6.setText("Capital: ");
-
-        jLabel9.setText("Total Interes:");
-
-        jLabel10.setText("Total Seguro Desgravamen:");
-
-        jLabel11.setText("Total a pagar:");
-
-        btbTablaAmorti.setText("Mostrar tabla de amortizacion");
-        btbTablaAmorti.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btbTablaAmortiActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addGap(331, 331, 331)
-                                                .addComponent(jLabel2))
-                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addGap(283, 283, 283)
-                                                .addComponent(lblCapital, javax.swing.GroupLayout.PREFERRED_SIZE, 59,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(43, 43, 43)
-                                                .addComponent(jLabel1)
-                                                .addGap(44, 44, 44)
-                                                .addGroup(jPanel4Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(lblCuota)
-                                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                                .addComponent(lblInteres,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 54,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addGroup(jPanel4Layout.createParallelGroup(
-                                                                        javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                                                .addComponent(jLabel4)
-                                                                                .addGap(37, 37, 37)
-                                                                                .addComponent(lblSeguro,
-                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                        66,
-                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                        .addGroup(jPanel4Layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                false)
-                                                                                .addComponent(lblTotalInteres,
-                                                                                        javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                        67, Short.MAX_VALUE)
-                                                                                .addComponent(lblTotalCapital,
-                                                                                        javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                        Short.MAX_VALUE))))))
-                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel3)
-                                                .addGap(147, 147, 147))
-                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addGap(275, 275, 275)
-                                                .addGroup(jPanel4Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-                                                                false)
-                                                        .addComponent(jLabel9)
-                                                        .addComponent(jLabel6)
-                                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                                .addComponent(jLabel11)
-                                                                .addGap(91, 91, 91)
-                                                                .addComponent(lblTotalAPagar,
-                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                        Short.MAX_VALUE))
-                                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                                .addComponent(jLabel10)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(lblTotalDesgrav,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 71,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addGap(309, 309, 309)
-                                                .addComponent(btbTablaAmorti)))
-                                .addContainerGap(1602, Short.MAX_VALUE)));
-        jPanel4Layout.setVerticalGroup(
-                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addGap(59, 59, 59)
-                                                .addGroup(jPanel4Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel1)
-                                                        .addComponent(jLabel4))
-                                                .addGap(85, 85, 85)
-                                                .addComponent(lblCuota)
-                                                .addGap(144, 144, 144)
-                                                .addComponent(jLabel3)
-                                                .addGap(42, 42, 42)
-                                                .addGroup(jPanel4Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel6)
-                                                        .addComponent(lblTotalCapital,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 16,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(jPanel4Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel9)
-                                                        .addComponent(lblTotalInteres))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(jPanel4Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel10)
-                                                        .addComponent(lblTotalDesgrav))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(jPanel4Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel11)
-                                                        .addComponent(lblTotalAPagar)))
-                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addComponent(jLabel2)
-                                                .addGap(40, 40, 40)
-                                                .addGroup(jPanel4Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(lblCapital)
-                                                        .addComponent(lblInteres)
-                                                        .addComponent(lblSeguro))))
-                                .addGap(41, 41, 41)
-                                .addComponent(btbTablaAmorti)
-                                .addGap(61, 61, 61)));
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 65, Short.MAX_VALUE)));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -411,12 +518,8 @@ public class Prestamo extends javax.swing.JFrame {
                                                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGap(2252, 2252, 2252)
                                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(538, 538, 538)
@@ -445,15 +548,9 @@ public class Prestamo extends javax.swing.JFrame {
                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(jPanel1Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jSeparator1,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 605,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(1690, 1690, 1690)
+                                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 605,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(1726, 1726, 1726)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE,
                                         javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
@@ -461,11 +558,18 @@ public class Prestamo extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 2844, Short.MAX_VALUE));
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1218,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 2540,
-                                javax.swing.GroupLayout.PREFERRED_SIZE));
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 2540,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -517,96 +621,66 @@ public class Prestamo extends javax.swing.JFrame {
     }// GEN-LAST:event_jComboxTipoMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
-        tm.setRowCount(0);
-        double montoEntrada = Double.parseDouble(txtPrestamoSoli.getText());
-        String mesesEscogidos = (String) JComboxMeses.getSelectedItem();
-        String meses = mesesEscogidos.substring(0, 2);
-        double mesesEntrada = Double.parseDouble(meses);
-        String metodo = elegirMetodo();
-        switch (metodo) {
-            case "Frances":
 
-                PrestamoUno p1 = new PrestamoUno(montoEntrada, mesesEntrada);
-                String capital = String.valueOf(Math.round(p1.calcularAmortizacionPeriodo() * 100.0) / 100.0);
-                lblCapital.setText(capital);
-                String interes = String.valueOf(p1.calcularInteresPeriodo());
-                lblInteres.setText(interes);
-                String segurosTotal = String.valueOf(p1.sumarSeguros());
-                lblSeguro.setText(segurosTotal);
-                lblCuota.setText(String.valueOf(p1.calcularCuotaFija()));
-                lblTotalCapital.setText(String.valueOf(montoEntrada));
-                Amortizacion am = new Amortizacion();
-                am.mostrarTablaFrancesa(montoEntrada, mesesEntrada);
-                double Intereses = am.sumarIntereses();
-                double TotalDesgrav = am.sumarSeguroDesravamen();
-                double totalAPagar = Intereses + TotalDesgrav + montoEntrada;
-                lblTotalInteres.setText(String.valueOf(Intereses));
-                lblTotalDesgrav.setText(String.valueOf(am.sumarSeguroDesravamen()));
-                lblTotalAPagar.setText(String.valueOf(totalAPagar));
-                break;
-            case "Aleman":
-                PrestamoDos p2 = new PrestamoDos(montoEntrada, mesesEntrada);
-                String capitalAleman = String.valueOf(Math.round(p2.calcularCapitalFija() * 100.0) / 100.0);
-                lblCapital.setText(capitalAleman);
-                String interesAleman = String.valueOf(p2.calcularInteres());
-                lblInteres.setText(interesAleman);
-                String segurosTotalAleman = String.valueOf(p2.sumarSeguros());
-                lblSeguro.setText(segurosTotalAleman);
-                lblCuota.setText(String.valueOf(p2.calcularCuota()));
-                lblTotalCapital.setText(String.valueOf(montoEntrada));
-                Amortizacion am2 = new Amortizacion();
-                am2.mostrarTablaAleman(montoEntrada, mesesEntrada);
-                double InteresesAleman = am2.sumarIntereses();
-                double TotalDesgravAleman = am2.sumarSeguroDesravamen();
-                double totalAPagarAleman = InteresesAleman + TotalDesgravAleman + montoEntrada;
-                lblTotalInteres.setText(String.valueOf(InteresesAleman));
-                lblTotalDesgrav.setText(String.valueOf(am2.sumarSeguroDesravamen()));
-                lblTotalAPagar.setText(String.valueOf(totalAPagarAleman));
-                break;
+        try {
+            tm.setRowCount(0);
+            double montoEntrada = Double.parseDouble(txtPrestamoSoli.getText());
+            String mesesEscogidos = (String) JComboxMeses.getSelectedItem();
+            String meses = mesesEscogidos.substring(0, 2);
+            double mesesEntrada = Double.parseDouble(meses);
+            String metodo = elegirMetodo();
+            if (montoEntrada < 0) {
+                JOptionPane.showMessageDialog(null, "NO ES POSIBLE ELINGRESO DE NUMEROS NEGATIVOS");
+            }
+            switch (metodo) {
+                case "Frances":
 
-            default:
-                JOptionPane.showMessageDialog(null, "PORFAVRO SELECCIONE UN METODO ");
+                    PrestamoUno p1 = new PrestamoUno(montoEntrada, mesesEntrada);
+                    String capital = String.valueOf(Math.round(p1.calcularAmortizacionPeriodo() * 100.0) / 100.0);
+                    lblCapital.setText(capital);
+                    String interes = String.valueOf(p1.calcularInteresPeriodo());
+                    lblInteres.setText(interes);
+                    String segurosTotal = String.valueOf(p1.sumarSeguros());
+                    lblSeguro.setText(segurosTotal);
+                    lblCuota.setText(String.valueOf(p1.calcularCuotaFija()));
+                    lblTotalCapital.setText(String.valueOf(montoEntrada));
+                    Amortizacion am = new Amortizacion();
+                    am.mostrarTablaFrancesa(montoEntrada, mesesEntrada);
+                    double Intereses = am.sumarIntereses();
+                    double TotalDesgrav = am.sumarSeguroDesravamen();
+                    double totalAPagar = Intereses + TotalDesgrav + montoEntrada;
+                    lblTotalInteres.setText(String.valueOf(Intereses));
+                    lblTotalDesgrav.setText(String.valueOf(am.sumarSeguroDesravamen()));
+                    lblTotalAPagar.setText(String.valueOf(totalAPagar));
+                    break;
+                case "Aleman":
+                    PrestamoDos p2 = new PrestamoDos(montoEntrada, mesesEntrada);
+                    String capitalAleman = String.valueOf(Math.round(p2.calcularCapitalFija() * 100.0) / 100.0);
+                    lblCapital.setText(capitalAleman);
+                    String interesAleman = String.valueOf(p2.calcularInteres());
+                    lblInteres.setText(interesAleman);
+                    String segurosTotalAleman = String.valueOf(p2.sumarSeguros());
+                    lblSeguro.setText(segurosTotalAleman);
+                    lblCuota.setText(String.valueOf(p2.calcularCuota()));
+                    lblTotalCapital.setText(String.valueOf(montoEntrada));
+                    Amortizacion am2 = new Amortizacion();
+                    am2.mostrarTablaAleman(montoEntrada, mesesEntrada);
+                    double InteresesAleman = am2.sumarIntereses();
+                    double TotalDesgravAleman = am2.sumarSeguroDesravamen();
+                    double totalAPagarAleman = InteresesAleman + TotalDesgravAleman + montoEntrada;
+                    lblTotalInteres.setText(String.valueOf(InteresesAleman));
+                    lblTotalDesgrav.setText(String.valueOf(am2.sumarSeguroDesravamen()));
+                    lblTotalAPagar.setText(String.valueOf(totalAPagarAleman));
+                    break;
+
+                default:
+                    JOptionPane.showMessageDialog(null, "PORFAVRO SELECCIONE UN METODO ");
+            }
+        } catch (IllegalArgumentException ie) {
+            JOptionPane.showMessageDialog(null, "NO ES POSIBLE EL INGRESO DE NUMEROS NEGATIVOS");
         }
 
-        /*
-         * if(costoAuto == entrada){
-         * PrestamoAuto p1 = new PrestamoAuto(entrada, meses);
-         * for(int i = 0 ; i<= meses ; i++){
-         * tm.addRow(new Object[]{
-         * 
-         * i,
-         * p1.calcularCapital(),
-         * 
-         * p1.calcularInteres(),
-         * p1.calcularSeguroDesgravemen(),
-         * p1.saldoTotal(),
-         * 
-         * p1.calcularSeguroIncendio(),
-         * p1.calcularCuotaFrances(),
-         * });
-         * }
-         * }else{
-         * PrestamoAuto p1 = new PrestamoAuto(costoAuto, meses, entrada);
-         * for(int i = 0 ; i<= meses ; i++){
-         * tm.addRow(new Object[]{
-         * 
-         * i,
-         * p1.calcularCapital(),
-         * 
-         * p1.calcularInteres(),
-         * p1.calcularSeguroDesgravemen(),
-         * p1.saldoTotal(),
-         * 
-         * p1.calcularSeguroIncendio(),
-         * p1.calcularCuotaFrances(),
-         * 
-         * });
-         * }
-         * }
-         * 
-         * jTable1.setModel(tm);
-         */
-    }// GEN-LAST:event_jButton1ActionPerformed
+    }
 
     private void JComboxMesesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JComboxMesesActionPerformed
         // TODO add your handling code here:
@@ -692,6 +766,13 @@ public class Prestamo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -707,6 +788,7 @@ public class Prestamo extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel jlabelAuto;
     private javax.swing.JLabel jlabelCasa;
     private javax.swing.JLabel lblCapital;
