@@ -621,65 +621,70 @@ public class Prestamo extends javax.swing.JFrame {
     }// GEN-LAST:event_jComboxTipoMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
+        int aux = 0;
+        while (aux == 0){
+                try {
+                tm.setRowCount(0);
+                double montoEntrada = Double.parseDouble(txtPrestamoSoli.getText());
+                String mesesEscogidos = (String) JComboxMeses.getSelectedItem();
+                String meses = mesesEscogidos.substring(0, 2);
+                double mesesEntrada = Double.parseDouble(meses);
+                String metodo = elegirMetodo();
+                if (montoEntrada <= 0) {
+                        JOptionPane.showMessageDialog(null, "// ERROR // NO ES POSIBLE EL INGRESO DE NÚMEROS NEGATIVOS //");
+                        break;
+                }
+                switch (metodo) {
+                        case "Frances":
 
-        try {
-            tm.setRowCount(0);
-            double montoEntrada = Double.parseDouble(txtPrestamoSoli.getText());
-            String mesesEscogidos = (String) JComboxMeses.getSelectedItem();
-            String meses = mesesEscogidos.substring(0, 2);
-            double mesesEntrada = Double.parseDouble(meses);
-            String metodo = elegirMetodo();
-            if (montoEntrada < 0) {
-                JOptionPane.showMessageDialog(null, "NO ES POSIBLE ELINGRESO DE NUMEROS NEGATIVOS");
-            }
-            switch (metodo) {
-                case "Frances":
+                        PrestamoUno p1 = new PrestamoUno(montoEntrada, mesesEntrada);
+                        String capital = String.valueOf(Math.round(p1.calcularAmortizacionPeriodo() * 100.0) / 100.0);
+                        lblCapital.setText(capital);
+                        String interes = String.valueOf(p1.calcularInteresPeriodo());
+                        lblInteres.setText(interes);
+                        String segurosTotal = String.valueOf(p1.sumarSeguros());
+                        lblSeguro.setText(segurosTotal);
+                        lblCuota.setText(String.valueOf(p1.calcularCuotaFija()));
+                        lblTotalCapital.setText(String.valueOf(montoEntrada));
+                        Amortizacion am = new Amortizacion();
+                        am.mostrarTablaFrancesa(montoEntrada, mesesEntrada);
+                        double Intereses = am.sumarIntereses();
+                        double TotalDesgrav = am.sumarSeguroDesravamen();
+                        double totalAPagar = Intereses + TotalDesgrav + montoEntrada;
+                        lblTotalInteres.setText(String.valueOf(Intereses));
+                        lblTotalDesgrav.setText(String.valueOf(am.sumarSeguroDesravamen()));
+                        lblTotalAPagar.setText(String.valueOf(totalAPagar));
+                        aux = 1;
+                        break;
+                        case "Aleman":
+                        PrestamoDos p2 = new PrestamoDos(montoEntrada, mesesEntrada);
+                        String capitalAleman = String.valueOf(Math.round(p2.calcularCapitalFija() * 100.0) / 100.0);
+                        lblCapital.setText(capitalAleman);
+                        String interesAleman = String.valueOf(p2.calcularInteres());
+                        lblInteres.setText(interesAleman);
+                        String segurosTotalAleman = String.valueOf(p2.sumarSeguros());
+                        lblSeguro.setText(segurosTotalAleman);
+                        lblCuota.setText(String.valueOf(p2.calcularCuota()));
+                        lblTotalCapital.setText(String.valueOf(montoEntrada));
+                        Amortizacion am2 = new Amortizacion();
+                        am2.mostrarTablaAleman(montoEntrada, mesesEntrada);
+                        double InteresesAleman = am2.sumarIntereses();
+                        double TotalDesgravAleman = am2.sumarSeguroDesravamen();
+                        double totalAPagarAleman = InteresesAleman + TotalDesgravAleman + montoEntrada;
+                        lblTotalInteres.setText(String.valueOf(InteresesAleman));
+                        lblTotalDesgrav.setText(String.valueOf(am2.sumarSeguroDesravamen()));
+                        lblTotalAPagar.setText(String.valueOf(totalAPagarAleman));
+                        aux = 1;
+                        break;
 
-                    PrestamoUno p1 = new PrestamoUno(montoEntrada, mesesEntrada);
-                    String capital = String.valueOf(Math.round(p1.calcularAmortizacionPeriodo() * 100.0) / 100.0);
-                    lblCapital.setText(capital);
-                    String interes = String.valueOf(p1.calcularInteresPeriodo());
-                    lblInteres.setText(interes);
-                    String segurosTotal = String.valueOf(p1.sumarSeguros());
-                    lblSeguro.setText(segurosTotal);
-                    lblCuota.setText(String.valueOf(p1.calcularCuotaFija()));
-                    lblTotalCapital.setText(String.valueOf(montoEntrada));
-                    Amortizacion am = new Amortizacion();
-                    am.mostrarTablaFrancesa(montoEntrada, mesesEntrada);
-                    double Intereses = am.sumarIntereses();
-                    double TotalDesgrav = am.sumarSeguroDesravamen();
-                    double totalAPagar = Intereses + TotalDesgrav + montoEntrada;
-                    lblTotalInteres.setText(String.valueOf(Intereses));
-                    lblTotalDesgrav.setText(String.valueOf(am.sumarSeguroDesravamen()));
-                    lblTotalAPagar.setText(String.valueOf(totalAPagar));
-                    break;
-                case "Aleman":
-                    PrestamoDos p2 = new PrestamoDos(montoEntrada, mesesEntrada);
-                    String capitalAleman = String.valueOf(Math.round(p2.calcularCapitalFija() * 100.0) / 100.0);
-                    lblCapital.setText(capitalAleman);
-                    String interesAleman = String.valueOf(p2.calcularInteres());
-                    lblInteres.setText(interesAleman);
-                    String segurosTotalAleman = String.valueOf(p2.sumarSeguros());
-                    lblSeguro.setText(segurosTotalAleman);
-                    lblCuota.setText(String.valueOf(p2.calcularCuota()));
-                    lblTotalCapital.setText(String.valueOf(montoEntrada));
-                    Amortizacion am2 = new Amortizacion();
-                    am2.mostrarTablaAleman(montoEntrada, mesesEntrada);
-                    double InteresesAleman = am2.sumarIntereses();
-                    double TotalDesgravAleman = am2.sumarSeguroDesravamen();
-                    double totalAPagarAleman = InteresesAleman + TotalDesgravAleman + montoEntrada;
-                    lblTotalInteres.setText(String.valueOf(InteresesAleman));
-                    lblTotalDesgrav.setText(String.valueOf(am2.sumarSeguroDesravamen()));
-                    lblTotalAPagar.setText(String.valueOf(totalAPagarAleman));
-                    break;
-
-                default:
-                    JOptionPane.showMessageDialog(null, "PORFAVRO SELECCIONE UN METODO ");
-            }
-        } catch (IllegalArgumentException ie) {
-            JOptionPane.showMessageDialog(null, "NO ES POSIBLE EL INGRESO DE NUMEROS NEGATIVOS");
+                        default:
+                        JOptionPane.showMessageDialog(null, "// ERROR // PORFAVOR SELECCIONE UN METODO ");
+                }
+                } catch (IllegalArgumentException ie) {
+                JOptionPane.showMessageDialog(null, "// ERROR // ASEGURESE DE INGRESAR TODOS LOS DATOS");
+                break;
+                }
         }
-
     }
 
     private void JComboxMesesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_JComboxMesesActionPerformed
