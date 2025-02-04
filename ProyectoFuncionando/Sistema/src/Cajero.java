@@ -68,13 +68,13 @@ public class Cajero extends Empleado {
      * @param institucion     Institución asociada a la transacción.
      * @param tipoTransaccion Tipo de transacción.
      */
-    public void registrarTransaccion(boolean isIngreso, double monto, String institucion, String tipoTransaccion) {
+    public void registrarTransaccion(boolean isIngreso, double monto, Institucion institucion, String tipoTransaccion) {
         if (isIngreso) {
             dineroCaja += monto; // Sumamos el monto de ingresos
         } else {
             dineroCaja -= monto; // Restamos el monto de egresos
         }
-        Transaccion transaccion = new Transaccion(super.getCodigo(), super.getNombre(), monto, institucion,
+        Transaccion transaccion = new Transaccion(super.getCodigo(), super.getNombre(), monto, institucion.getInsititucion(),
                 tipoTransaccion, isIngreso);
         transaccion.generarCSVTransaccion();
     }
@@ -86,13 +86,16 @@ public class Cajero extends Empleado {
      */
     public void entregarExcedenteABoveda(Boveda boveda) {
         double excedente = dineroCaja - 1000.00; // Umbral de 1000 USD
-
+        Institucion inst = new Institucion("");
         if (excedente > 0) {
             // Llamamos al método de la Bóveda para agregar el excedente
             boveda.agregarDinero(excedente);
             dineroCaja -= excedente; // Reducir el excedente de la caja
             JOptionPane.showMessageDialog(null, "El excedente de " + excedente +
-                    " USD ha sido entregado a la Bóveda.", null, 1);
+                    "USD ha sido entregado a la Bóveda.\nDinero en caja: " + getDineroCaja(), null, 1);
+                    registrarTransaccion(false, excedente, inst, "Entrega excedente a boveda");
+                    
+
         } else {
             JOptionPane.showMessageDialog(null, "No hay excedente en la caja. Dinero de la caja: " +
                     getDineroCaja(), null, 1);
@@ -582,7 +585,7 @@ class Supervisor extends Empleado {
             documento.add(new Paragraph("Código Cajero: " + cajero.getCodigo()));
             documento.add(new Paragraph("Horario del Cajero: " + cajero.getHorario()));
             documento.add(new Paragraph("Nombre del Cajero: " + cajero.getNombre()));
-            documento.add(new Paragraph("\nDetalle de Dinero Físico en Caja:"));
+            documento.add(new Paragraph("\nDetalle de Dinero Físico en Caja:\n\n"));
 
             // Crear tabla con las denominaciones
             PdfPTable tablaDenominaciones = new PdfPTable(3);

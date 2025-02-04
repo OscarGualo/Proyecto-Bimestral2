@@ -25,7 +25,7 @@ public class LoginLogic {
         LoginLogic.password = password;
     }
 
-    public String getUser() {
+    public static String getUser() {
         return user;
     }
 

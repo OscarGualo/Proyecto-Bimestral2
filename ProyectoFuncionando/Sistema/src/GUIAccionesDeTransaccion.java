@@ -31,7 +31,7 @@ public class GUIAccionesDeTransaccion {
 	// atributos
 	private String opcionSeleccionada;
 	private JPanel rightPanel;
-	private String intitucionSeleccionada;
+	private Institucion intitucionSeleccionada;
 	private Cajero cajero001, cajero002;
 	private Boveda boveda;
 	private double totalVerificado;
@@ -50,7 +50,7 @@ public class GUIAccionesDeTransaccion {
 	 * @param boveda      Referencia a la bóveda del sistema.
 	 */
 
-	public GUIAccionesDeTransaccion(String opcion, JPanel rightPanel, String institucion, Cajero cajero1,
+	public GUIAccionesDeTransaccion(String opcion, JPanel rightPanel, Institucion institucion, Cajero cajero1,
 			Cajero cajero2, Boveda boveda) {
 		this.opcionSeleccionada = opcion;
 		this.rightPanel = rightPanel;
@@ -61,11 +61,11 @@ public class GUIAccionesDeTransaccion {
 	}
 
 	// Getter and Setters
-	public String getIntitucionSeleccionada() {
+	public Institucion getIntitucionSeleccionada() {
 		return intitucionSeleccionada;
 	}
 
-	public void setIntitucionSeleccionada(String intitucionSeleccionada) {
+	public void setIntitucionSeleccionada(Institucion intitucionSeleccionada) {
 		this.intitucionSeleccionada = intitucionSeleccionada;
 	}
 
@@ -176,7 +176,7 @@ public class GUIAccionesDeTransaccion {
 				break;
 
 			case "Nómina":
-				nominaDeCaja();
+				nominaDeCaja(0.0);
 				break;
 			default:
 				break;
@@ -186,7 +186,7 @@ public class GUIAccionesDeTransaccion {
 	/**
 	 * Muestra la interfaz y gestiona la operación de nomina de caja.
 	 */
-	public void nominaDeCaja() {
+	public void nominaDeCaja(Double monto) {
 
 		JLabel lblTitle = new JLabel("Nómina");
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
@@ -202,6 +202,8 @@ public class GUIAccionesDeTransaccion {
 
 		JTextField txtCodigoCajero = new JTextField();
 		txtCodigoCajero.setBounds(205, 91, 150, 25);
+		txtCodigoCajero.setText(cajero001.getCodigo());
+		txtCodigoCajero.setEnabled(false);
 		rightPanel.add(txtCodigoCajero);
 
 		JLabel lblNombre = new JLabel("Nombre de Cajero:");
@@ -210,6 +212,8 @@ public class GUIAccionesDeTransaccion {
 
 		JTextField txtNombreCajero = new JTextField();
 		txtNombreCajero.setBounds(513, 91, 150, 25);
+		txtNombreCajero.setText(cajero001.getNombre());
+		txtNombreCajero.setEnabled(false);
 		rightPanel.add(txtNombreCajero);
 
 		JLabel lblDenominacion = new JLabel("Tipo:");
@@ -241,6 +245,11 @@ public class GUIAccionesDeTransaccion {
 		lblTotalUSD.setBounds(65, 291, 150, 25);
 		rightPanel.add(lblTotalUSD);
 
+		JLabel montoIngresar = new JLabel("Limite (USD): " + monto);
+		montoIngresar.setBounds(65, 316, 150, 25);
+		rightPanel.add(montoIngresar);
+		montoIngresar.setForeground(Color.RED);
+
 		JTextField txtTotalUSD = new JTextField();
 		txtTotalUSD.setEditable(false);
 		txtTotalUSD.setBounds(205, 291, 150, 25);
@@ -259,7 +268,7 @@ public class GUIAccionesDeTransaccion {
 		lblTotalVerificado.setBounds(397, 197, 150, 25);
 		rightPanel.add(lblTotalVerificado);
 
-		JTextField totalVeridicado = new JTextField("");
+		JTextField totalVeridicado = new JTextField("0.0");
 		totalVeridicado.setEditable(false);
 		totalVeridicado.setBounds(513, 197, 150, 25);
 		rightPanel.add(totalVeridicado);
@@ -269,8 +278,8 @@ public class GUIAccionesDeTransaccion {
 		rightPanel.add(lblCantidad_2);
 
 		JTextField totalDisponible = new JTextField();
-		totalDisponible.setText("100");
 		totalDisponible.setEditable(false);
+		totalDisponible.setText(cajero001.getDineroCaja() + "");
 		totalDisponible.setBounds(513, 245, 150, 25);
 		rightPanel.add(totalDisponible);
 
@@ -284,13 +293,13 @@ public class GUIAccionesDeTransaccion {
 		rightPanel.add(diferencia);
 
 		JButton btnGuardar = new JButton("Guardar");
-		btnGuardar.setBounds(420, 352, 198, 30);
+		btnGuardar.setBounds(420, 367, 198, 30);
 		rightPanel.add(btnGuardar);
 		btnGuardar.setEnabled(false);
 
 		// Botón para registrar el valor y actualizar el total
 		JButton btnRegistrar = new JButton("Registrar billete/monedas");
-		btnRegistrar.setBounds(120, 348, 198, 30);
+		btnRegistrar.setBounds(120, 363, 198, 30);
 		rightPanel.add(btnRegistrar);
 
 		txtCodigoCajero.getDocument().addDocumentListener(new DocumentListener() {
@@ -330,8 +339,19 @@ public class GUIAccionesDeTransaccion {
 			double totalUSD = 0.0;
 
 			public void actionPerformed(ActionEvent e) {
+
+				String verificadoText = totalVeridicado.getText().replace(",", ".");
+				double verificado1 = Double.parseDouble(verificadoText);
+
 				try {
 
+					if (monto <= verificado1) {
+						montoIngresar.setForeground(Color.GREEN);
+						JOptionPane.showMessageDialog(rightPanel, "El limite ha sido alcanzado", "Error",
+								JOptionPane.ERROR_MESSAGE);
+						btnGuardar.setEnabled(true);
+						return;
+					}
 					// Validar que los campos no estén vacíos
 					if (txtValor.getText().isEmpty() || txtCantidad.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(rightPanel, "Debe ingresar un valor y una cantidad.", "Error",
@@ -379,12 +399,17 @@ public class GUIAccionesDeTransaccion {
 							JOptionPane.ERROR_MESSAGE);
 				}
 
-				String verificadoText = totalVeridicado.getText().replace(",", ".");
 				String disponibleText = totalDisponible.getText().replace(",", ".");
-				double verificado = Double.parseDouble(verificadoText);
+				String verificadoText2 = totalVeridicado.getText().replace(",", ".");
+				double verificado = Double.parseDouble(verificadoText2);
 				double disponible = Double.parseDouble(disponibleText);
 				double resultado = verificado - disponible;
 				diferencia.setText("" + resultado);
+
+				if (monto == verificado) {
+					montoIngresar.setForeground(Color.GREEN);
+					return;
+				}
 			}
 
 		});
@@ -489,21 +514,24 @@ public class GUIAccionesDeTransaccion {
 						return;
 					}
 					boveda.setDinero(boveda.getDinero() - cantidad);
-					cajeroDestino.registrarTransaccion(true, cantidad, "", getOpcionSeleccionada());
+					cajeroDestino.registrarTransaccion(true, cantidad, null, getOpcionSeleccionada());
 					JOptionPane.showMessageDialog(null, "Transferencia desde Bóveda realizada con éxito.", "Éxito",
 							JOptionPane.INFORMATION_MESSAGE);
 				} else if (cajeroOrigen != null && cajeroDestino != null) {
 					// **VALIDACIÓN DEL DINERO ANTES DE HACER UN EGRESO ENTRE CAJEROS**
-					System.out.println(validarDineroCaja(cajeroOrigen, cantidad) || cajeroOrigen.getDineroCaja()<cajeroDestino.getDineroCaja());
-					if (validarDineroCaja(cajeroOrigen, cantidad) || cajeroOrigen.getDineroCaja()<cajeroDestino.getDineroCaja()) {
+					System.out.println(validarDineroCaja(cajeroOrigen, cantidad)
+							|| cajeroOrigen.getDineroCaja() < cajeroDestino.getDineroCaja());
+					if (validarDineroCaja(cajeroOrigen, cantidad)
+							|| cajeroOrigen.getDineroCaja() < cajeroDestino.getDineroCaja()) {
 						return;
 					} else {
 
-					// Transferencia entre Cajeros
-					cajeroOrigen.registrarTransaccion(false, cantidad, "", getOpcionSeleccionada());
-					cajeroDestino.registrarTransaccion(true, cantidad, "", getOpcionSeleccionada());
-					JOptionPane.showMessageDialog(null, "Transferencia entre cajeros realizada con éxito.", "Éxito",
-							JOptionPane.INFORMATION_MESSAGE);}
+						// Transferencia entre Cajeros
+						cajeroOrigen.registrarTransaccion(false, cantidad, null, getOpcionSeleccionada());
+						cajeroDestino.registrarTransaccion(true, cantidad, null, getOpcionSeleccionada());
+						JOptionPane.showMessageDialog(null, "Transferencia entre cajeros realizada con éxito.", "Éxito",
+								JOptionPane.INFORMATION_MESSAGE);
+					}
 				} else if (cajeroOrigen != null && esBovedaDestino) {
 					// **VALIDACIÓN DEL DINERO ANTES DE HACER UN EGRESO DESDE UN CAJERO A LA
 					// BÓVEDA**
@@ -512,7 +540,7 @@ public class GUIAccionesDeTransaccion {
 					}
 
 					// Transferencia desde un Cajero a la Bóveda
-					cajeroOrigen.registrarTransaccion(false, cantidad, "", getOpcionSeleccionada());
+					cajeroOrigen.registrarTransaccion(false, cantidad, null, getOpcionSeleccionada());
 					boveda.setDinero(boveda.getDinero() + cantidad);
 					JOptionPane.showMessageDialog(null, "Transferencia a la Bóveda realizada con éxito.", "Éxito",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -580,12 +608,14 @@ public class GUIAccionesDeTransaccion {
 			try {
 				double cantidad = Double.parseDouble(montoIngresado.replace(",", "."));
 				if (cantidad <= 0) {
-					JOptionPane.showMessageDialog(null, "El monto debe ser mayor a 0.", "Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "El monto debe ser mayor a 0.", "Error",
+							JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 
 				if (origen.equals(destino)) {
-					JOptionPane.showMessageDialog(null, "El origen y el destino no pueden ser iguales.", "Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "El origen y el destino no pueden ser iguales.", "Error",
+							JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 
@@ -614,30 +644,34 @@ public class GUIAccionesDeTransaccion {
 
 				if (esBovedaOrigen && cajeroDestino != null) {
 					if (boveda.getDinero() < cantidad) {
-						JOptionPane.showMessageDialog(null, "Saldo insuficiente en la Bóveda.", "Error", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Saldo insuficiente en la Bóveda.", "Error",
+								JOptionPane.ERROR_MESSAGE);
 						return;
 					}
 					boveda.setDinero(boveda.getDinero() - cantidad);
-					cajeroDestino.registrarTransaccion(true, cantidad, "", "Ingreso de Caja");
+					cajeroDestino.registrarTransaccion(true, cantidad, null, "Ingreso de Caja");
 
 				} else if (cajeroOrigen != null && cajeroDestino != null) {
 					if (cajeroOrigen.getDineroCaja() < cantidad) {
-						JOptionPane.showMessageDialog(null, "Saldo insuficiente en el cajero de origen.", "Error", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Saldo insuficiente en el cajero de origen.", "Error",
+								JOptionPane.ERROR_MESSAGE);
 						return;
 					}
-					cajeroOrigen.registrarTransaccion(false, cantidad, "", "Egreso de Caja");
-					cajeroDestino.registrarTransaccion(true, cantidad, "", "Ingreso de Caja");
+					cajeroOrigen.registrarTransaccion(false, cantidad, null, "Egreso de Caja");
+					cajeroDestino.registrarTransaccion(true, cantidad, null, "Ingreso de Caja");
 
 				} else if (cajeroOrigen != null && esBovedaDestino) {
 					if (cajeroOrigen.getDineroCaja() < cantidad) {
-						JOptionPane.showMessageDialog(null, "Saldo insuficiente en el cajero.", "Error", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Saldo insuficiente en el cajero.", "Error",
+								JOptionPane.ERROR_MESSAGE);
 						return;
 					}
-					cajeroOrigen.registrarTransaccion(false, cantidad, "", "Ingreso de Caja");
+					cajeroOrigen.registrarTransaccion(false, cantidad, null, "Ingreso de Caja");
 					boveda.setDinero(boveda.getDinero() + cantidad);
 
 				} else {
-					JOptionPane.showMessageDialog(null, "No se puede procesar la transacción.", "Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "No se puede procesar la transacción.", "Error",
+							JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 
@@ -656,7 +690,8 @@ public class GUIAccionesDeTransaccion {
 						lineasActualizadas.add(String.join(",", datos));
 					}
 				} catch (IOException ex) {
-					JOptionPane.showMessageDialog(null, "Error al leer el archivo de cuentas.", "Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Error al leer el archivo de cuentas.", "Error",
+							JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 
@@ -666,13 +701,16 @@ public class GUIAccionesDeTransaccion {
 						writer.newLine();
 					}
 				} catch (IOException ex) {
-					JOptionPane.showMessageDialog(null, "Error al actualizar el saldo en el archivo CSV.", "Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Error al actualizar el saldo en el archivo CSV.", "Error",
+							JOptionPane.ERROR_MESSAGE);
 				}
 
-				JOptionPane.showMessageDialog(null, "Transacción realizada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Transacción realizada con éxito.", "Éxito",
+						JOptionPane.INFORMATION_MESSAGE);
 
 			} catch (NumberFormatException ex) {
-				JOptionPane.showMessageDialog(null, "Ingrese un monto válido (solo números).", "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Ingrese un monto válido (solo números).", "Error",
+						JOptionPane.ERROR_MESSAGE);
 			}
 		});
 	}
@@ -886,7 +924,10 @@ public class GUIAccionesDeTransaccion {
 
 				// **Registrar el egreso en el cajero después de validar**
 				cajero001.registrarTransaccion(false, monto, intitucionSeleccionada, getOpcionSeleccionada());
-
+				rightPanel.removeAll();
+				nominaDeCaja(monto);
+				rightPanel.revalidate();
+				rightPanel.repaint();
 			} catch (NumberFormatException ex) {
 				JOptionPane.showMessageDialog(null, "Ingrese un monto válido (solo números).", "Error",
 						JOptionPane.ERROR_MESSAGE);
@@ -1040,7 +1081,10 @@ public class GUIAccionesDeTransaccion {
 
 				// Registrar la transacción en el cajero
 				cajero001.registrarTransaccion(false, monto, intitucionSeleccionada, getOpcionSeleccionada());
-
+				rightPanel.removeAll();
+				nominaDeCaja(monto);
+				rightPanel.revalidate();
+				rightPanel.repaint();
 			} catch (NumberFormatException ex) {
 				JOptionPane.showMessageDialog(null, "Error: El monto ingresado no es válido.", "Error",
 						JOptionPane.ERROR_MESSAGE);
@@ -1200,7 +1244,10 @@ public class GUIAccionesDeTransaccion {
 
 			// Registrar transacción en el cajero
 			cajero001.registrarTransaccion(true, monto, intitucionSeleccionada, getOpcionSeleccionada());
-
+			rightPanel.removeAll();
+				nominaDeCaja(monto);
+				rightPanel.revalidate();
+				rightPanel.repaint();
 			// Limpiar los campos de entrada
 			montoDeposito.setText("");
 		});
@@ -1368,12 +1415,16 @@ public class GUIAccionesDeTransaccion {
 			}
 
 			// Confirmación del depósito
-			JOptionPane.showMessageDialog(null, "El depósito se realizó con éxito. Monto total: $" + montoTotal, "Éxito",
+			JOptionPane.showMessageDialog(null, "El depósito se realizó con éxito. Monto total: $" + montoTotal,
+					"Éxito",
 					JOptionPane.INFORMATION_MESSAGE);
 
 			// Registrar transacción en el cajero
 			cajero001.registrarTransaccion(true, montoTotal, intitucionSeleccionada, getOpcionSeleccionada());
-
+			rightPanel.removeAll();
+				nominaDeCaja(montoTotal);
+				rightPanel.revalidate();
+				rightPanel.repaint();
 			// Limpiar los campos de entrada
 			montoCheques.setText("");
 			numCheques.setText("");
@@ -1564,8 +1615,12 @@ public class GUIAccionesDeTransaccion {
 					JOptionPane.INFORMATION_MESSAGE);
 
 			// Registrar transacción en el cajero
-			cajero001.registrarTransaccion(true, montoEfect + montoTotalCheques, intitucionSeleccionada, getOpcionSeleccionada());
-
+			cajero001.registrarTransaccion(true, montoEfect + montoTotalCheques, intitucionSeleccionada,
+					getOpcionSeleccionada());
+					rightPanel.removeAll();
+					nominaDeCaja(montoEfect+montoTotalCheques);
+					rightPanel.revalidate();
+					rightPanel.repaint();
 			// Limpiar los campos de entrada
 			montoEfectivo.setText("");
 			montoCheques.setText("");
@@ -1718,7 +1773,6 @@ public class GUIAccionesDeTransaccion {
 				}
 
 				// Validación para el número de cuenta (solo números)
-				int numeroCheques = 0;
 				String numeroCuentaText = numeroCuenta.getText();
 				if (!numeroCuentaText.matches("[0-9]+")) {
 					JOptionPane.showMessageDialog(null, "El número de cuenta debe contener solo números.", "Error",
@@ -1759,7 +1813,6 @@ public class GUIAccionesDeTransaccion {
 							JOptionPane.ERROR_MESSAGE);
 					return;
 				} else {
-					numeroCheques = Integer.parseInt(numeroDeChequeText);
 				}
 
 				// Validación para el monto girado (solo números y punto decimal)
@@ -1778,10 +1831,10 @@ public class GUIAccionesDeTransaccion {
 					return;
 				}
 
-				cajero001.registrarTransaccion(false, montoGirado * numeroCheques, intitucionSeleccionada,
+				cajero001.registrarTransaccion(false, montoGirado, intitucionSeleccionada,
 						getOpcionSeleccionada());
 				rightPanel.removeAll();
-				nominaDeCaja();
+				nominaDeCaja(montoGirado);
 				rightPanel.revalidate();
 				rightPanel.repaint();
 				JOptionPane.showMessageDialog(null,
@@ -2054,7 +2107,10 @@ public class GUIAccionesDeTransaccion {
 					// Registrar la transacción en el cajero
 					cajero001.registrarTransaccion(true, montoIngresado, intitucionSeleccionada,
 							getOpcionSeleccionada());
-
+							rightPanel.removeAll();
+							nominaDeCaja(montoIngresado);
+							rightPanel.revalidate();
+							rightPanel.repaint();
 					JOptionPane.showMessageDialog(null, "Libreta actualizada con éxito", "Éxito",
 							JOptionPane.INFORMATION_MESSAGE);
 
@@ -2174,6 +2230,10 @@ public class GUIAccionesDeTransaccion {
 				// Convertir monto a Double después de la validación
 				Double monto = Double.parseDouble(montoTexto);
 				cajero001.registrarTransaccion(true, monto, intitucionSeleccionada, getOpcionSeleccionada());
+				rightPanel.removeAll();
+				nominaDeCaja(monto);
+				rightPanel.revalidate();
+				rightPanel.repaint();
 				// Si pasa todas las validaciones
 				JOptionPane.showMessageDialog(null, "Pago de giro registrado correctamente.", "Éxito",
 						JOptionPane.INFORMATION_MESSAGE);
@@ -2453,7 +2513,10 @@ public class GUIAccionesDeTransaccion {
 
 					// **Registrar el egreso en el cajero después de validar**
 					cajero001.registrarTransaccion(false, monto, intitucionSeleccionada, getOpcionSeleccionada());
-
+					rightPanel.removeAll();
+				nominaDeCaja(monto);
+				rightPanel.revalidate();
+				rightPanel.repaint();
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(null, "Ingrese un monto válido (solo números).", "Error",
 							JOptionPane.ERROR_MESSAGE);
@@ -2615,7 +2678,10 @@ public class GUIAccionesDeTransaccion {
 				}
 
 				cajero001.registrarTransaccion(true, monto, intitucionSeleccionada, getOpcionSeleccionada());
-
+				rightPanel.removeAll();
+				nominaDeCaja(monto);
+				rightPanel.revalidate();
+				rightPanel.repaint();
 				JOptionPane.showMessageDialog(null, "Pago realizado con éxito.");
 			}
 		});
@@ -2725,7 +2791,10 @@ public class GUIAccionesDeTransaccion {
 				}
 
 				cajero001.registrarTransaccion(true, monto, intitucionSeleccionada, getOpcionSeleccionada());
-
+				rightPanel.removeAll();
+				nominaDeCaja(monto);
+				rightPanel.revalidate();
+				rightPanel.repaint();
 				JOptionPane.showMessageDialog(null, "Pago realizado con éxito.");
 			}
 		});
@@ -2850,6 +2919,10 @@ public class GUIAccionesDeTransaccion {
 				}
 
 				cajero001.registrarTransaccion(true, monto, intitucionSeleccionada, getOpcionSeleccionada());
+				rightPanel.removeAll();
+				nominaDeCaja(monto);
+				rightPanel.revalidate();
+				rightPanel.repaint();
 				JOptionPane.showMessageDialog(null, "Pago realizado con éxito.");
 			}
 		});
@@ -3135,7 +3208,7 @@ public class GUIAccionesDeTransaccion {
 				} else {
 					cajero = cajero002;
 				}
-
+				cajero.entregarExcedenteABoveda(boveda);
 				Supervisor rep = new Supervisor("Ing. Lopez", "S0001", "Normal", cajero);
 				rep.generarReporteNomina(cajero);
 

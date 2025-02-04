@@ -4,7 +4,8 @@ import java.awt.*;
 
 /**
  * Interfaz gráfica del módulo transaccional del sistema bancario.
- * Permite la navegación y ejecución de diversas operaciones financieras mediante un menú interactivo.
+ * Permite la navegación y ejecución de diversas operaciones financieras
+ * mediante un menú interactivo.
  * Integra cajeros y una bóveda para la gestión de dinero en efectivo.
  * 
  * @author Grupo 3
@@ -17,11 +18,12 @@ public class GUIModuloTransaccional extends JFrame {
 	private JPanel rightPanel;
 	private JLabel infoLabel;
 	private String institucionSeleccionada = "Banco de los Andes"; // Institución por defecto
+	private Institucion institucion = new Institucion(institucionSeleccionada);
 	private String categoriaSeleccionada = "Todas"; // Filtro del menú horizontal
 	private JLabel lblEstado; // Muestra (institución / opción seleccionada)
 	private JTree menuVertical;
 	private Boveda boveda = new Boveda(1000000);
-	private Cajero cajero = new Cajero("C0001", "Alberto Sanchez", "Normal", 10000);
+	private Cajero cajero = new Cajero("C0001", LoginLogic.getUser(), "Normal", 10000);
 	private Cajero cajeroDos = new Cajero("C0002", "Juan Maldonado", "Diferido", 10000);
 
 	/**
@@ -65,10 +67,6 @@ public class GUIModuloTransaccional extends JFrame {
 				this.dispose();
 			});
 		});
-		
-		
-		toolBar.add(Box.createHorizontalGlue()); // Empuja el botón a la derecha
-		toolBar.add(btnSalir);
 
 		getContentPane().add(toolBar, BorderLayout.NORTH);
 
@@ -129,7 +127,8 @@ public class GUIModuloTransaccional extends JFrame {
 
 	/**
 	 * Agrega un botón al menú horizontal de categorías.
-	 * Permite cambiar la vista de las transacciones disponibles según la categoría seleccionada.
+	 * Permite cambiar la vista de las transacciones disponibles según la categoría
+	 * seleccionada.
 	 *
 	 * @param toolBar Barra de herramientas donde se agregará el botón.
 	 * @param nombre  Nombre de la categoría representada por el botón.
@@ -146,7 +145,8 @@ public class GUIModuloTransaccional extends JFrame {
 	}
 
 	/**
-	 * Carga las opciones del menú vertical según la institución financiera seleccionada.
+	 * Carga las opciones del menú vertical según la institución financiera
+	 * seleccionada.
 	 * Agrupa las transacciones en categorías como Caja, Pagos, Cobros y Reportes.
 	 * 
 	 * @param institucion Nombre de la institución financiera seleccionada.
@@ -249,7 +249,8 @@ public class GUIModuloTransaccional extends JFrame {
 	}
 
 	/**
-	 * Agrega las opciones de depósito (efectivo, cheque, mixto) al menú de transacciones.
+	 * Agrega las opciones de depósito (efectivo, cheque, mixto) al menú de
+	 * transacciones.
 	 *
 	 * @param parent   Menu padre donde se insertarán las opciones.
 	 * @param efectivo Indica si se permite depósito en efectivo.
@@ -273,7 +274,8 @@ public class GUIModuloTransaccional extends JFrame {
 	 *
 	 * @param parent               Menu padre donde se insertarán las opciones.
 	 * @param pagoCheques          Indica si se permite el pago de cheques.
-	 * @param actualizacionLibreta Indica si se permite la actualización de libreta de ahorro.
+	 * @param actualizacionLibreta Indica si se permite la actualización de libreta
+	 *                             de ahorro.
 	 * @param pagoGiros            Indica si se permite el pago de giros.
 	 */
 	private void agregarPagos(DefaultMutableTreeNode parent, boolean pagoCheques, boolean actualizacionLibreta,
@@ -307,10 +309,14 @@ public class GUIModuloTransaccional extends JFrame {
 	 * Agrega las opciones de cobros al menú de transacciones.
 	 *
 	 * @param parent                 Menu padre donde se insertarán las opciones.
-	 * @param revisionVehicular      Indica si se permite el pago de revisión vehicular.
-	 * @param matriculacionVehicular Indica si se permite el pago de matriculación vehicular.
-	 * @param planillasEEQ           Indica si se permite el pago de planilla de EEQ.
-	 * @param impuestoPredial        Indica si se permite el pago de impuesto predial.
+	 * @param revisionVehicular      Indica si se permite el pago de revisión
+	 *                               vehicular.
+	 * @param matriculacionVehicular Indica si se permite el pago de matriculación
+	 *                               vehicular.
+	 * @param planillasEEQ           Indica si se permite el pago de planilla de
+	 *                               EEQ.
+	 * @param impuestoPredial        Indica si se permite el pago de impuesto
+	 *                               predial.
 	 */
 	private void agregarCobranzas(DefaultMutableTreeNode parent, boolean revisionVehicular,
 			boolean matriculacionVehicular, boolean planillasEEQ, boolean impuestoPredial) {
@@ -328,7 +334,8 @@ public class GUIModuloTransaccional extends JFrame {
 	}
 
 	/**
-	 * Actualiza el panel derecho de la interfaz según la opción seleccionada en elmenú.
+	 * Actualiza el panel derecho de la interfaz según la opción seleccionada en
+	 * elmenú.
 	 * Llama a la clase `GUIAccionesDeTransaccion` para ejecutar la operación
 	 * correspondiente.
 	 *
@@ -337,13 +344,13 @@ public class GUIModuloTransaccional extends JFrame {
 	private void actualizarPanelDerecho(String opcionSeleccionada) {
 		rightPanel.removeAll(); // Limpiar contenido anterior
 		GUIAccionesDeTransaccion accionTransaccion = new GUIAccionesDeTransaccion(opcionSeleccionada, rightPanel,
-				institucionSeleccionada, cajero, cajeroDos, boveda);
+				institucion, cajero, cajeroDos, boveda);
 		accionTransaccion.accionDeLaOpcion();
 		rightPanel.revalidate();
 		rightPanel.repaint();
 	}
 
-	// public static void main(String[] args) {
-	// 	SwingUtilities.invokeLater(() -> new GUIModuloTransaccional().setVisible(true));
-	// }
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(() -> new GUIModuloTransaccional().setVisible(true));
+	}
 }
