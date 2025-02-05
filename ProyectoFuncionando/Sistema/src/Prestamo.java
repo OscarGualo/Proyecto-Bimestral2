@@ -630,7 +630,7 @@ public class Prestamo extends javax.swing.JFrame {
                 String meses = mesesEscogidos.substring(0, 2);
                 double mesesEntrada = Double.parseDouble(meses);
                 String metodo = elegirMetodo();
-                if (montoEntrada <= 0) {
+                if (montoEntrada < 0) {
                         JOptionPane.showMessageDialog(null, "// ERROR // NO ES POSIBLE EL INGRESO DE NÚMEROS NEGATIVOS //");
                         break;
                 }
